@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+*$py.class
+.ruff_cache/
+.pytest_cache/
+*.egg-info/
+dist/
+build/
+.env
+.venv/
+venv/
+node_modules/
+tmp/logs/*.log
+.claude/agent-workspace/task_plan.md
+.claude/agent-workspace/findings.md
+.claude/agent-workspace/progress.md

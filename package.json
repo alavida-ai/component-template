@@ -1,0 +1,8 @@
+{
+  "name": "component-agent-tools",
+  "private": true,
+  "scripts": {
+    "tail": "npx agent-tail tmp/logs/"
+  },
+  "devDependencies": {}
+}

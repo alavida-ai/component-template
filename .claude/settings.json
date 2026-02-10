@@ -1,0 +1,13 @@
+{
+  "extraKnownMarketplaces": {
+    "alavida-plugins": {
+      "source": {
+        "source": "github",
+        "repo": "alavida-ai/knowledge-base"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "component-tools@alavida-plugins": true
+  }
+}
