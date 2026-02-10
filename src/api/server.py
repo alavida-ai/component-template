@@ -7,9 +7,6 @@ from fastapi.responses import JSONResponse
 from src.observability.errors import ComponentError
 from src.observability.logging import get_logger
 from src.types.models import HealthResponse, RunRequest, RunResponse
-from src.workflows.inngest_client import inngest_client
-
-import inngest.fast_api
 
 logger = get_logger(__name__)
 
@@ -49,5 +46,9 @@ async def run(request: RunRequest, req: Request):
     )
 
 
-# Mount Inngest serve endpoint
-inngest.fast_api.serve(app, inngest_client, [])
+# Mount Inngest serve endpoint only when signing key is configured
+if os.getenv("INNGEST_SIGNING_KEY"):
+    import inngest.fast_api
+    from src.workflows.inngest_client import inngest_client
+
+    inngest.fast_api.serve(app, inngest_client, [])
