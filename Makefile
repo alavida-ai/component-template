@@ -1,4 +1,4 @@
-.PHONY: dev test smoke clean
+.PHONY: dev test smoke clean format lint typecheck
 
 dev:
 	uv run uvicorn src.api.server:app --reload --host 0.0.0.0 --port 8000
@@ -18,7 +18,16 @@ smoke:
 		curl -sf http://localhost:8000/health && echo "" && echo "Smoke test PASSED" || echo "Smoke test FAILED"; \
 		kill $$SERVER_PID 2>/dev/null || true
 
+format:
+	uv run black src/ tests/
+
+lint:
+	uv run ruff check src/ tests/
+
+typecheck:
+	uv run mypy src/
+
 clean:
 	find . -type d -name __pycache__ -exec rm -rf {} + 2>/dev/null || true
 	find . -type d -name .pytest_cache -exec rm -rf {} + 2>/dev/null || true
-	rm -rf .ruff_cache
+	rm -rf .ruff_cache htmlcov .coverage

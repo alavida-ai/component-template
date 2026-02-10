@@ -1,16 +1,52 @@
+# Python
 __pycache__/
 *.py[cod]
 *$py.class
-.ruff_cache/
-.pytest_cache/
+*.so
 *.egg-info/
 dist/
 build/
-.env
+
+# Virtual environments
 .venv/
 venv/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.ruff_cache/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Environment variables
+.env
+.env.local
+
+# Logs
+*.log
+logs/
+tmp/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node (agent-tail dev tool only)
 node_modules/
-tmp/logs/*.log
+package-lock.json
+
+# Agent session artifacts (created by compound engineering skill)
+findings.md
+progress.md
+task_plan.md
 .claude/agent-workspace/task_plan.md
 .claude/agent-workspace/findings.md
 .claude/agent-workspace/progress.md
+.claude/skills/agent-tail
+.claude/skills/planning-with-files/
